@@ -1,0 +1,22 @@
+from typing import List
+
+class Solution:
+    def rob(self, nums: List[int]) -> int:
+        memo = [-1] * len(nums)
+        
+        def robHouse(i: int) -> int:
+            if i >= len(nums):
+                return 0
+            if memo[i] >=0 :
+                return memo[i]
+            rob_current = nums[i] + robHouse(i + 2)
+            skip_current = robHouse(i + 1)
+            memo[i] = max(rob_current, skip_current)
+            return memo[i]
+        
+        return robHouse(0)
+
+# Example usage:
+sol = Solution()
+result = sol.rob([1,3,1])
+print(f"Output: {result}")
