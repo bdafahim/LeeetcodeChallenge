@@ -1,6 +1,19 @@
+#1
+
 function isPalindrome(x: number): boolean {
     let z,y;
     z = x.toString();
     y = z.split('').reverse().join('');
     return (z===y);
 };
+
+#2
+
+function isPalindrome(x: number): boolean {
+    let z,y;
+    z = x.toString();
+    for(let i=0; i<z.length/2; i++) {
+        if(z[i] !== z[z.length-i-1]) {
+            return false
+        }
+    }
