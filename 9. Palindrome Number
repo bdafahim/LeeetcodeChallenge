@@ -1,0 +1,6 @@
+function isPalindrome(x: number): boolean {
+    let z,y;
+    z = x.toString();
+    y = z.split('').reverse().join('');
+    return (z===y);
+};
